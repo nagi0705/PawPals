@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PawPals</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+</head>
+<body>
+  <header>
+    <%= render 'shared/header' %>
+  </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <footer>
+    <%= render 'shared/footer' %>
+  </footer>
+</body>
+</html>
