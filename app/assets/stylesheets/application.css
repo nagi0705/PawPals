@@ -81,7 +81,7 @@ nav i {
 }
 
 .navbar {
-  background-color: transparent; /* 背景を透明にする */
+  background-color: transparent; 
   padding: 10px;
 }
 
@@ -111,4 +111,8 @@ nav i {
   height: auto;
   display: block;
   margin: 20px auto;
+}
+
+body {
+  background-image: image-url("hoge.jpg");
 }

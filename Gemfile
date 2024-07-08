@@ -8,7 +8,9 @@ gem 'rails', '~> 6.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.6.8'  # 最新バージョンが5.6.8の場合
+gem 'mysql2', '>= 0.5.3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -58,4 +60,12 @@ gem 'devise'
 gem 'font-awesome-sass', '~> 5.15'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick', '~> 4.8'
+gem 'dotenv-rails'
 
+group :production do
+  gem 'mysql2', '>= 0.5.3'
+end
+
+gem 'net-smtp'
+gem 'net-pop'
+gem 'net-imap'
