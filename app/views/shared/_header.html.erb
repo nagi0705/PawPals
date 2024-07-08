@@ -1,34 +1,54 @@
-<div class="container">
-  <h1>PawPals</h1>
-  <% if user_signed_in? %>
-    <nav>
-      <%= link_to root_path do %>
-        <i class="fa fa-home"></i> ホーム
+<nav class="navbar">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <%= link_to root_path, class: 'nav-link' do %>
+        <i class="fas fa-home"></i> ホーム
       <% end %>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="fa fa-sign-out-alt"></i> ログアウト
+    </li>
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+          <i class="fas fa-sign-out-alt"></i> ログアウト
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to new_post_path, class: 'nav-link' do %>
+          <i class="fas fa-plus"></i> 新しい投稿
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to posts_path, class: 'nav-link' do %>
+          <i class="fas fa-th-list"></i> 投稿一覧
+        <% end %>
+      </li>
+      <% if current_user.admin? %>
+        <li class="nav-item">
+          <%= link_to admin_users_path, class: 'nav-link' do %>
+            <i class="fas fa-user-cog"></i> ユーザー管理
+          <% end %>
+        </li>
       <% end %>
-      <%= link_to new_post_path do %>
-        <i class="fa fa-plus"></i> 新しい投稿
+      <li class="nav-item">
+        <%= link_to groups_path, class: 'nav-link' do %>
+          <i class="fas fa-users"></i> グループ
+        <% end %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to new_user_session_path, class: 'nav-link' do %>
+          <i class="fas fa-sign-in-alt"></i> ログイン
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to new_user_registration_path, class: 'nav-link' do %>
+          <i class="fas fa-user-plus"></i> サインアップ
+        <% end %>
+      </li>
+    <% end %>
+    <li class="nav-item">
+      <%= link_to about_path, class: 'nav-link' do %>
+        <i class="fas fa-info-circle"></i> 概要
       <% end %>
-      <%= link_to posts_path do %>
-        <i class="fa fa-list"></i> 投稿一覧
-      <% end %>
-    </nav>
-  <% else %>
-    <nav>
-      <%= link_to root_path do %>
-        <i class="fa fa-home"></i> ホーム
-      <% end %>
-      <%= link_to new_user_session_path do %>
-        <i class="fa fa-sign-in-alt"></i> ログイン
-      <% end %>
-      <%= link_to new_user_registration_path do %>
-        <i class="fa fa-user-plus"></i> 新規登録
-      <% end %>
-      <%= link_to users_guest_sign_in_path, method: :post do %>
-        <i class="fa fa-user-secret"></i> ゲストログイン
-      <% end %>
-    </nav>
-  <% end %>
-</div>
+    </li>
+  </ul>
+</nav>

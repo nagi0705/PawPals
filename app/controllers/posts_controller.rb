@@ -5,7 +5,14 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def search
+    @posts = Post.search(params[:search])
+    render :index
+  end
+
   def show
+    @post = Post.find(params[:id])
+    @comments = @post.comments.includes(:user)
   end
 
   def new

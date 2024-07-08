@@ -1,14 +1,14 @@
 <h1>投稿一覧</h1>
 
-<%= link_to '新しい投稿', new_post_path %>
+<%= form_with(url: posts_path, method: :get, local: true) do %>
+  <%= label_tag :search, "検索" %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "検索", name: nil %>
+<% end %>
 
 <% @posts.each do |post| %>
-  <div>
+  <div class="post">
     <h2><%= link_to post.title, post %></h2>
-    <p><%= post.content %></p>
-    <% if post.image.present? %>
-      <%= image_tag post.image.url %>
-    <% end %>
-    <p><%= link_to '編集', edit_post_path(post) %> | <%= link_to '削除', post, method: :delete, data: { confirm: '本当に削除しますか？' } %></p>
+    <p><%= truncate(post.content, length: 100) %></p>
   </div>
 <% end %>

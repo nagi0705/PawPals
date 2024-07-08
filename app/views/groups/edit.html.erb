@@ -1,0 +1,15 @@
+<h1>グループ<%= action_name == 'new' ? '作成' : '編集' %></h1>
+<%= form_with(model: @group, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to '戻る', groups_path %>
