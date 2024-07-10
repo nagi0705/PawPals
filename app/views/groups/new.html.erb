@@ -1,5 +1,15 @@
-<h1>グループ作成</h1>
+<% if @group.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+    <ul>
+    <% @group.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
+<h1><%= action_name == 'new' ? 'グループ作成' : 'グループ編集' %></h1>
 <%= form_with(model: @group, local: true) do |form| %>
   <div class="field">
     <%= form.label :name %>
@@ -14,8 +24,7 @@
     <%= form.collection_select :user_ids, User.all, :id, :username, {}, { multiple: true } %>
   </div>
   <div class="actions">
-    <%= form.submit "Create Group" %>
+    <%= form.submit %>
   </div>
 <% end %>
-
 <%= link_to '戻る', groups_path %>
