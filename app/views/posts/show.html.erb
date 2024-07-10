@@ -4,8 +4,15 @@
 <% if @post.image.present? %>
   <p>
     <strong>Image:</strong>
-    <%= image_tag @post.image.url, class: "post-image" %>
+    <%= image_tag @post.image, class: "post-image" %>
   </p>
+<% end %>
+
+<p>投稿者: <%= @post.user.username %></p>
+
+<% if @post.user == current_user || current_user&.admin? %>
+  <%= link_to '編集', edit_post_path(@post) %> |
+  <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' } %>
 <% end %>
 
 <h2>コメント</h2>
@@ -23,9 +30,10 @@
 <% @post.comments.each do |comment| %>
   <div class="comment">
     <p><%= comment.content %></p>
-    <p>投稿者: <%= comment.user.email if comment.user %></p>
+    <p>投稿者: <%= comment.user.username if comment.user %></p>
     <% if comment.user == current_user || current_user&.admin? %>
       <% if comment.persisted? %>
+        <%= link_to '編集', edit_post_comment_path(@post, comment) %> |
         <%= link_to '削除', post_comment_path(@post, comment), method: :delete, data: { confirm: '本当に削除しますか？' } %>
       <% end %>
     <% end %>

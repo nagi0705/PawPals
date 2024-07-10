@@ -1,3 +1,4 @@
+# config/routes.rb
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :edit, :update, :destroy]
     collection do
       get 'search'
     end
@@ -20,7 +21,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :groups
+  resources :groups do
+    resources :messages, only: [:create, :destroy]
+  end
 
   namespace :admin do
     resources :users, only: [:index, :edit, :update, :destroy]

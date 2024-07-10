@@ -1,8 +1,7 @@
-# app/controllers/comments_controller.rb
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post
-  before_action :set_comment, only: [:destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   def create
     @comment = @post.comments.build(comment_params)
@@ -11,6 +10,17 @@ class CommentsController < ApplicationController
       redirect_to @post, notice: 'コメントが追加されました。'
     else
       redirect_to @post, alert: 'コメントの追加に失敗しました。'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to @post, notice: 'コメントが更新されました。'
+    else
+      render :edit
     end
   end
 

@@ -1,4 +1,5 @@
-<h1>グループ<%= action_name == 'new' ? '作成' : '編集' %></h1>
+<h1>グループ編集</h1>
+
 <%= form_with(model: @group, local: true) do |form| %>
   <div class="field">
     <%= form.label :name %>
@@ -8,8 +9,13 @@
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
+  <div class="field">
+    <%= form.label :user_ids, "メンバーを選択" %><br>
+    <%= form.collection_select :user_ids, User.all, :id, :username, {}, { multiple: true } %>
+  </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Update Group" %>
   </div>
 <% end %>
+
 <%= link_to '戻る', groups_path %>

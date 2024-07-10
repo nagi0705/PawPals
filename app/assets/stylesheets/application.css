@@ -17,7 +17,7 @@ header .container {
 
 nav {
   margin-top: 10px;
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 nav ul {
@@ -59,7 +59,7 @@ nav i {
 
 .post-image {
   max-width: 100%;
-  max-height: 400px; 
+  max-height: 400px;
   width: auto;
   height: auto;
   display: block;
@@ -68,9 +68,6 @@ nav i {
 
 .user {
   margin-bottom: 20px;
-}
-
-.user {
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
@@ -81,7 +78,7 @@ nav i {
 }
 
 .navbar {
-  background-color: transparent; 
+  background-color: transparent;
   padding: 10px;
 }
 
@@ -114,5 +111,5 @@ nav i {
 }
 
 body {
-  background-image: image-url("hoge.jpg");
+  background-image: url("hoge.jpg");
 }
