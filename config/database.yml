@@ -2,9 +2,9 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch("DB_USERNAME", "ec2-user") %>
-  password: <%= ENV.fetch("DB_PASSWORD", "your_database_password") %>
-  host: <%= ENV.fetch("DB_HOST", "localhost") %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
 
 development:
   <<: *default
@@ -16,7 +16,7 @@ test:
 
 production:
   <<: *default
-  database: pawpals_db_production
-  username: <%= ENV.fetch("DB_USERNAME", "ec2-user") %>
-  password: <%= ENV.fetch("DB_PASSWORD", "your_database_password") %>
-  host: <%= ENV.fetch("DB_HOST", "localhost") %>
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
