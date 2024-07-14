@@ -1,14 +1,18 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = if params[:query].present?
+               Post.where('title LIKE ? OR content LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
+             else
+               Post.all
+             end
   end
 
   def search
-    @posts = Post.search(params[:search])
+    @posts = Post.where('title LIKE ? OR content LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
     render :index
   end
 

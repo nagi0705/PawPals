@@ -36,6 +36,7 @@ gem 'font-awesome-sass', '~> 5.15'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick', '~> 4.8'
 gem 'dotenv-rails'
+gem 'jquery-rails' # 追加
 
 gem 'net-smtp'
 gem 'net-pop'

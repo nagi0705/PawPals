@@ -14,6 +14,15 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+// Import jQuery
+import $ from 'jquery'
+window.jQuery = $
+window.$ = $
+
+$(document).on('turbolinks:load', function() {
+  // Any specific JavaScript to run on page load
+})
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
