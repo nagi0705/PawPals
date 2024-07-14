@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2024_07_10_104619) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "comments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.text "content", size: :medium
+  create_table "comments", charset: "latin1", collation: "latin1_swedish_ci", force: :cascade do |t|
+    t.text "content"
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2024_07_10_104619) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "group_memberships", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "group_memberships", charset: "latin1", collation: "latin1_swedish_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -59,15 +59,15 @@ ActiveRecord::Schema.define(version: 2024_07_10_104619) do
     t.index ["user_id"], name: "index_group_memberships_on_user_id"
   end
 
-  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "groups", charset: "latin1", collation: "latin1_swedish_ci", force: :cascade do |t|
     t.string "name"
-    t.text "description", size: :medium
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "messages", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.text "content"
+  create_table "messages", charset: "latin1", collation: "latin1_swedish_ci", force: :cascade do |t|
+    t.text "content", null: false
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 2024_07_10_104619) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "posts", charset: "latin1", collation: "latin1_swedish_ci", force: :cascade do |t|
     t.string "title"
-    t.text "content", size: :medium
+    t.text "content"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2024_07_10_104619) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "users", charset: "latin1", collation: "latin1_swedish_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -95,9 +95,10 @@ ActiveRecord::Schema.define(version: 2024_07_10_104619) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
-    t.string "username"
+    t.string "username", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

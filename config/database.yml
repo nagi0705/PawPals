@@ -8,15 +8,15 @@ default: &default
 
 development:
   <<: *default
-  database: pawpals_db_development
+  database: pawpals_development
 
 test:
   <<: *default
-  database: pawpals_db_test
+  database: pawpals_test
 
 production:
   <<: *default
-  database: <%= ENV['DB_DATABASE'] %>
+  database: pawpals_production
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
   host: <%= ENV['DB_HOST'] %>
