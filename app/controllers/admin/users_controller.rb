@@ -20,9 +20,13 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.group_memberships.destroy_all  # これで関連するgroup_membershipsを削除
-    @user.destroy
+    ActiveRecord::Base.transaction do
+      @user.group_memberships.destroy_all  # これで関連するgroup_membershipsを削除
+      @user.destroy
+    end
     redirect_to admin_users_path, notice: 'User was successfully destroyed.'
+  rescue ActiveRecord::RecordNotDestroyed
+    redirect_to admin_users_path, alert: 'Failed to destroy user.'
   end
 
   private
