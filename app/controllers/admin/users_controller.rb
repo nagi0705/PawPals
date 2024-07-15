@@ -21,12 +21,12 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     ActiveRecord::Base.transaction do
-      @user.group_memberships.destroy_all  # 関連するgroup_membershipsを先に削除
+      @user.group_memberships.destroy_all  # 関連するgroup_membershipsを削除
       @user.destroy!
     end
     redirect_to admin_users_path, notice: 'User was successfully destroyed.'
-  rescue ActiveRecord::RecordNotDestroyed => e
-    redirect_to admin_users_path, alert: "Failed to destroy user: #{e.message}"
+  rescue ActiveRecord::RecordNotDestroyed, ActiveRecord::RecordInvalid => e
+    redirect_to admin_users_path, alert: "Failed to delete user: #{e.message}"
   end
 
   private
