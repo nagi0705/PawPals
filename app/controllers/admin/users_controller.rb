@@ -1,37 +1,26 @@
-class Admin::UsersController < ApplicationController
-  before_action :authenticate_admin!
+class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
-  def index
-    @users = User.all
-  end
+  validates :username, presence: true, uniqueness: true
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :group_memberships, dependent: :destroy
+  has_many :groups, through: :group_memberships
+  has_many :messages, dependent: :destroy
 
-  def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to admin_users_path, notice: 'User was successfully updated.'
-    else
-      render :edit
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
     end
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.group_memberships.destroy_all  # これで関連するgroup_membershipsを削除
-    @user.destroy
-    redirect_to admin_users_path, notice: 'User was successfully destroyed.'
-  end
-
-  private
-
-  def authenticate_admin!
-    redirect_to root_path, alert: 'Not authorized.' unless current_user && current_user.admin?
-  end
-
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :admin)
+  def self.search(search)
+    if search
+      where('email LIKE ?', "%#{search}%")
+    else
+      all
+    end
   end
 end
