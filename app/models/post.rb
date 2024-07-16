@@ -1,9 +1,11 @@
-class Pet < ApplicationRecord
+class Post < ApplicationRecord
   belongs_to :user
+  belongs_to :group, optional: true
+
   has_one_attached :image
 
-  validates :name, presence: true
-  validates :species, presence: true
-  validates :age, presence: true
-  validates :kind, presence: true
+  has_many :comments, dependent: :destroy
+
+  validates :title, presence: true
+  validates :content, presence: true
 end
