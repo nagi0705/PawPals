@@ -1,0 +1,21 @@
+<h1>ペット詳細</h1>
+<p>
+  <strong>名前:</strong>
+  <%= @pet.name %>
+</p>
+<p>
+  <strong>動物:</strong>
+  <%= @pet.species %>
+</p>
+<p>
+  <strong>年齢:</strong>
+  <%= @pet.age %>
+</p>
+<p>
+  <strong>種類:</strong>
+  <%= @pet.kind %>
+</p>
+
+<%= link_to '編集', edit_pet_path(@pet), class: 'btn btn-warning' %> |
+<%= link_to '削除', pet_path(@pet), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %> |
+<%= link_to '戻る', pets_path, class: 'btn btn-secondary' %>

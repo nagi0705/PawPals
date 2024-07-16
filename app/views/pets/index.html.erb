@@ -1,0 +1,31 @@
+<h1>ペット管理</h1>
+<p>ここでペットの管理ができます。</p>
+
+<%= link_to '新しいペットを登録', new_pet_path, class: 'btn btn-primary' %>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>動物</th>
+      <th>年齢</th>
+      <th>種類</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.species %></td>
+        <td><%= pet.age %></td>
+        <td><%= pet.kind %></td>
+        <td>
+          <%= link_to '詳細', pet_path(pet), class: 'btn btn-info btn-sm' %>
+          <%= link_to '編集', edit_pet_path(pet), class: 'btn btn-warning btn-sm' %>
+          <%= link_to '削除', pet_path(pet), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :destroy]
   end
 
+  resources :pets  # ここで全てのアクションのルートを自動生成
+
   namespace :admin do
     resources :users, only: [:index, :edit, :update, :destroy]
   end

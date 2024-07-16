@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_10_104619) do
+ActiveRecord::Schema.define(version: 2024_07_16_030218) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 2024_07_10_104619) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "pets", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "species"
+    t.integer "age"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "kind"
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
+
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -109,5 +120,6 @@ ActiveRecord::Schema.define(version: 2024_07_10_104619) do
   add_foreign_key "group_memberships", "users"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
+  add_foreign_key "pets", "users"
   add_foreign_key "posts", "users"
 end

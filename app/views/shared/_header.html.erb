@@ -33,6 +33,11 @@
           <i class="fas fa-users"></i> グループ
         <% end %>
       </li>
+      <li class="nav-item">
+        <%= link_to pets_path, class: 'nav-link' do %>
+          <i class="fas fa-paw"></i> ペット管理
+        <% end %>
+      </li>
     <% else %>
       <li class="nav-item">
         <%= link_to new_user_session_path, class: 'nav-link' do %>
