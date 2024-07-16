@@ -1,6 +1,6 @@
 <h1>新しいペットを登録</h1>
 
-<%= form_with model: @pet, local: true do |form| %>
+<%= form_with model: @pet, local: true, html: { multipart: true } do |form| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
@@ -36,6 +36,11 @@
     <span>(例:チワワ、ロシアンブルー、ジャンガリアンなど。。。)</span>
   </div>
   
+  <div class="form-group">
+    <%= form.label :image, 'ペットの画像' %>
+    <%= form.file_field :image, class: 'form-control' %>
+  </div>
+
   <div class="form-group">
     <%= form.submit '登録する', class: 'btn btn-primary' %>
   </div>

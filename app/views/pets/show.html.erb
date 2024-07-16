@@ -1,4 +1,5 @@
 <h1>ペット詳細</h1>
+
 <p>
   <strong>名前:</strong>
   <%= @pet.name %>
@@ -15,6 +16,13 @@
   <strong>種類:</strong>
   <%= @pet.kind %>
 </p>
+
+<% if @pet.image.attached? %>
+  <p>
+    <strong>画像:</strong><br>
+    <%= image_tag @pet.image, class: 'pet-image' %>
+  </p>
+<% end %>
 
 <%= link_to '編集', edit_pet_path(@pet), class: 'btn btn-warning' %> |
 <%= link_to '削除', pet_path(@pet), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %> |

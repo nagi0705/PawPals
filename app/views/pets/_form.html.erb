@@ -1,0 +1,42 @@
+<%= form_with(model: pet, local: true, html: { multipart: true }) do |form| %>
+  <% if pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+      <% pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, "名前" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "大事な家族のお名前は？" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :species, "動物" %>
+    <%= form.text_field :species, class: "form-control", placeholder: "例: 犬、猫、ハムスター、鳥、うさぎなど..." %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :age, "年齢" %>
+    <%= form.number_field :age, class: "form-control", placeholder: "推定でも構いません🙌" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :kind, "種類" %>
+    <%= form.text_field :kind, class: "form-control", placeholder: "例: チワワ、ロシアンブルー、ジャンガリアンなど..." %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :image, "ペットの画像" %>
+    <%= form.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "登録する", class: "btn btn-primary" %>
+  </div>
+<% end %>
