@@ -8,7 +8,7 @@
     </h2>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%= message.gsub('Email ', '').gsub('Password ', '').gsub('Username ', '') %></li>
       <% end %>
     </ul>
   </div>

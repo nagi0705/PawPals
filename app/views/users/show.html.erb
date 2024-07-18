@@ -7,19 +7,18 @@
 
 <p>
   <strong>登録日時:</strong>
-  <%= @user.created_at %>
+  <%= @user.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
 </p>
 
 <h2>投稿一覧</h2>
-<ul>
-  <% @user.posts.each do |post| %>
-    <li>
-      <h3><%= link_to post.title, post_path(post) %></h3>
-      <p><%= post.content %></p>
-    </li>
-  <% end %>
-</ul>
+<% if @user.posts.any? %>
+  <ul>
+    <% @user.posts.each do |post| %>
+      <li><%= link_to post.title, post_path(post) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>投稿はありません。</p>
+<% end %>
 
-<p>
-  <%= link_to 'Back', users_path %>
-</p>
+<%= link_to '戻る', users_path %>

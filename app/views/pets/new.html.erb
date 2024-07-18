@@ -3,7 +3,7 @@
 <%= form_with model: @pet, local: true, html: { multipart: true } do |form| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+      <h2><%= pluralize(@pet.errors.count, "つのエラーにより、このペットの保存が禁止されました：") %></h2>
       <ul>
         <% @pet.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -16,29 +16,44 @@
     <%= form.label :name, '名前' %>
     <%= form.text_field :name, class: 'form-control' %>
     <span>(大事な家族のお名前は？)</span>
+    <% if @pet.errors[:name].any? %>
+      <span class="error"><%= @pet.errors[:name].first %></span>
+    <% end %>
   </div>
   
   <div class="form-group">
-    <%= form.label :species, '動物' %>
+    <%= form.label :species, '種類' %>
     <%= form.text_field :species, class: 'form-control' %>
     <span>(例:犬、猫、ハムスター、鳥、うさぎなど。。。)</span>
+    <% if @pet.errors[:species].any? %>
+      <span class="error"><%= @pet.errors[:species].first %></span>
+    <% end %>
   </div>
   
   <div class="form-group">
     <%= form.label :age, '年齢' %>
     <%= form.number_field :age, class: 'form-control' %>
     <span>(推定でも構いません🙌)</span>
+    <% if @pet.errors[:age].any? %>
+      <span class="error"><%= @pet.errors[:age].first %></span>
+    <% end %>
   </div>
   
   <div class="form-group">
-    <%= form.label :kind, '種類' %>
+    <%= form.label :kind, 'カラー' %>
     <%= form.text_field :kind, class: 'form-control' %>
     <span>(例:チワワ、ロシアンブルー、ジャンガリアンなど。。。)</span>
+    <% if @pet.errors[:kind].any? %>
+      <span class="error"><%= @pet.errors[:kind].first %></span>
+    <% end %>
   </div>
   
   <div class="form-group">
     <%= form.label :image, 'ペットの画像' %>
     <%= form.file_field :image, class: 'form-control' %>
+    <% if @pet.errors[:image].any? %>
+      <span class="error"><%= @pet.errors[:image].first %></span>
+    <% end %>
   </div>
 
   <div class="form-group">

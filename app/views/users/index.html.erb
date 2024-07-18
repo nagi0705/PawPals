@@ -1,13 +1,19 @@
-<h1>ユーザ一覧</h1>
+<h1>ユーザー一覧</h1>
 
-<%= form_with(url: search_users_path, method: :get, local: true) do %>
-  <%= label_tag :search, "検索" %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "検索", name: nil %>
+<%= form_with url: search_users_path, method: :get, local: true do %>
+  <%= label_tag :q, '検索' %>
+  <%= text_field_tag :q %>
+  <%= submit_tag '検索' %>
 <% end %>
 
-<% @users.each do |user| %>
-  <div class="user">
-    <h2><%= link_to user.email, user_path(user) %></h2>
-  </div>
-<% end %>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.username, user_path(user) %>
+      <% if user == current_user || current_user.admin? %>
+        <%= link_to '編集', edit_user_path(user) %> |
+        <%= link_to '削除', user, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

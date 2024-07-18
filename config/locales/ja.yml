@@ -1,0 +1,63 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              blank: "ユーザー名を入力してください"
+              taken: "このユーザー名は既に使用されています"
+            email:
+              blank: "メールアドレスを入力してください"
+              invalid: "有効なメールアドレスを入力してください"
+              taken: "このメールアドレスは既に使用されています"
+            password:
+              blank: "パスワードを入力してください"
+              too_short: "パスワードは最低%{count}文字以上必要です"
+            password_confirmation:
+              blank: "パスワード確認を入力してください"
+              confirmation: "パスワード確認が一致しません"
+        post:
+          attributes:
+            title:
+              blank: "タイトルを入力してください"
+            content:
+              blank: "コンテンツを入力してください"
+        comment:
+          attributes:
+            content:
+              blank: "コメントを入力してください"
+        pet:
+          attributes:
+            name:
+              blank: "ペットの名前を入力してください"
+            species:
+              blank: "ペットの種類を入力してください"
+            age:
+              blank: "ペットの年齢を入力してください"
+            owner_id:
+              blank: "飼い主を指定してください"
+
+  devise:
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+    registrations:
+      signed_up: "サインアップが完了しました。"
+      updated: "アカウント情報を更新しました。"
+      destroyed: "アカウントを削除しました。"
+    passwords:
+      updated: "パスワードを変更しました。"
+      send_instructions: "パスワード再設定の案内を送信しました。"
+      no_token: "無効なトークンです。"
+
+  errors:
+    messages:
+      blank: "を入力してください"
+      taken: "は既に使用されています"
+      invalid: "は無効です"
+      too_short: "は%{count}文字以上でなければなりません"
+      confirmation: "が一致しません"
+      not_saved:
+        one: "エラーが発生したため、保存できませんでした。"
+        other: "%{count}件のエラーが発生したため、保存できませんでした。"

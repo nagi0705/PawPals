@@ -38,6 +38,14 @@
           <i class="fas fa-paw"></i> ペット管理
         <% end %>
       </li>
+      <li class="nav-item">
+        <%= link_to user_path(current_user), class: 'nav-link' do %>
+          <i class="fas fa-user"></i> プロフィール情報の表示
+        <% end %>
+      </li>
+      <li class="nav-item no-pointer">
+        <i class="fas fa-user"></i> <%= current_user.username %>
+      </li>
     <% else %>
       <li class="nav-item">
         <%= link_to new_user_session_path, class: 'nav-link' do %>

@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
-    delete 'users/sign_out', to: 'devise/sessions#destroy'  # ログアウトルートを追加
+    delete 'users/sign_out', to: 'devise/sessions#destroy'
   end
 
   resources :posts do
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index, :show, :edit, :update, :destroy] do
     collection do
       get 'search'
     end
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :destroy]
   end
 
-  resources :pets  # ここで全てのアクションのルートを自動生成
+  resources :pets
 
   namespace :admin do
     resources :users, only: [:index, :edit, :update, :destroy]

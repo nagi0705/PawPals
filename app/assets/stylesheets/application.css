@@ -151,3 +151,9 @@ body {
   display: block;
   margin: 10px auto;
 }
+
+/* 追加: ユーザー名をクリックできないようにする */
+.no-pointer {
+  pointer-events: none;
+  cursor: default;
+}
