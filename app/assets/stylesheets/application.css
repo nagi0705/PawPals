@@ -165,7 +165,6 @@ nav i {
 @media only screen and (max-width: 600px) {
   .container {
     width: 100%;
-    padding: 0 15px; /* 追加: コンテナにパディングを追加 */
   }
   .navbar-nav {
     flex-direction: column;
@@ -176,6 +175,13 @@ nav i {
   }
   nav li {
     margin: 5px 0; /* 追加: スマホでのナビゲーションアイテムの間隔調整 */
+  }
+  header .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .welcome-image {
+    width: 100%;
   }
 }
 
