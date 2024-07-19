@@ -56,6 +56,7 @@ class GroupsController < ApplicationController
 
   def authorize_member!
     unless current_user.admin? || @group.users.include?(current_user)
+      logger.info "User #{current_user.id} is not authorized to access Group #{@group.id}"
       redirect_to groups_path, alert: 'アクセス権限がありません。'
     end
   end
