@@ -25,6 +25,7 @@ nav ul {
   padding: 0;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* 追加 */
 }
 
 nav li {
@@ -87,6 +88,7 @@ nav i {
   justify-content: space-around;
   list-style: none;
   padding: 0;
+  flex-wrap: wrap; /* 追加 */
 }
 
 .nav-item {
