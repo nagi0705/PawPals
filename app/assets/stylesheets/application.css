@@ -1,3 +1,8 @@
+/* 全体のスタイル */
+body {
+  background-image: url("hoge.jpg");
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -29,7 +34,7 @@ nav ul {
 }
 
 nav li {
-  margin: 0 15px;
+  margin: 0 10px; /* 修正 */
 }
 
 nav a {
@@ -112,10 +117,6 @@ nav i {
   margin: 20px auto;
 }
 
-body {
-  background-image: url("hoge.jpg");
-}
-
 .form-group {
   display: flex;
   flex-direction: column; /* 追加: 垂直方向に揃える */
@@ -171,6 +172,9 @@ body {
   }
   .form-control {
     max-width: 100%;
+  }
+  nav li {
+    margin: 5px 0; /* 追加: スマホでのナビゲーションアイテムの間隔調整 */
   }
 }
 
