@@ -31,6 +31,8 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
+      # メンバーの更新
+      @group.user_ids = params[:group][:user_ids]
       redirect_to @group, notice: 'グループが更新されました。'
     else
       render :edit
