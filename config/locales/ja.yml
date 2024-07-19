@@ -30,13 +30,13 @@ ja:
         pet:
           attributes:
             name:
-              blank: "ペットの名前を入力してください"
+              blank: "名前を入力してください"
             species:
-              blank: "ペットの種類を入力してください"
+              blank: "種類を入力してください"
             age:
-              blank: "ペットの年齢を入力してください"
-            owner_id:
-              blank: "飼い主を指定してください"
+              blank: "年齢を入力してください"
+            kind:
+              blank: "カラーを入力してください"
 
   devise:
     sessions:
