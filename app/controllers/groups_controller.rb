@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @message = Message.new # 新しいメッセージインスタンスを作成
   end
 
   def new
