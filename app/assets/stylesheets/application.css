@@ -1,3 +1,4 @@
+/* 全体のスタイル */
 body {
   background-image: url("hoge.jpg");
 }
@@ -29,11 +30,11 @@ nav ul {
   padding: 0;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap; /* 追加 */
 }
 
 nav li {
-  margin: 0 10px; 
+  margin: 0 10px; /* 修正 */
 }
 
 nav a {
@@ -92,7 +93,7 @@ nav i {
   justify-content: space-around;
   list-style: none;
   padding: 0;
-  flex-wrap: wrap; 
+  flex-wrap: wrap; /* 追加 */
 }
 
 .nav-item {
@@ -118,12 +119,12 @@ nav i {
 
 .form-group {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column; /* 追加: 垂直方向に揃える */
   margin-bottom: 1rem;
 }
 
 .form-group label {
-  width: auto;
+  width: auto; /* 修正: 幅を自動調整 */
 }
 
 .form-group input,
@@ -154,15 +155,17 @@ nav i {
   margin: 10px auto;
 }
 
-
+/* 追加: ユーザー名をクリックできないようにする */
 .no-pointer {
   pointer-events: none;
   cursor: default;
 }
 
+/* レスポンシブ対応 */
 @media only screen and (max-width: 600px) {
   .container {
     width: 100%;
+    padding: 0 15px; /* 追加: コンテナにパディングを追加 */
   }
   .navbar-nav {
     flex-direction: column;
@@ -172,7 +175,7 @@ nav i {
     max-width: 100%;
   }
   nav li {
-    margin: 5px 0; 
+    margin: 5px 0; /* 追加: スマホでのナビゲーションアイテムの間隔調整 */
   }
 }
 
