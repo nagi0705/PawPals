@@ -21,7 +21,12 @@
   </div>
   <div class="field">
     <%= form.label :user_ids, "メンバーを選択" %><br>
-    <%= form.collection_select :user_ids, User.all, :id, :username, {}, { multiple: true } %>
+    <%= form.collection_check_boxes :user_ids, User.all, :id, :username do |b| %>
+      <div class="checkbox">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
   </div>
   <div class="actions">
     <%= form.submit "グループを更新" %>
