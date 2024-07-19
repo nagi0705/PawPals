@@ -16,18 +16,14 @@
 
 <h2>ミニチャット</h2>
 
-<% if @message %>
-  <%= form_with(model: [ @group, @message ], local: true) do |form| %>
-    <div class="field">
-      <%= form.label :content %>
-      <%= form.text_area :content %>
-    </div>
-    <div class="actions">
-      <%= form.submit "送信" %>
-    </div>
-  <% end %>
-<% else %>
-  <p>メッセージを作成できません。</p>
+<%= form_with(model: [@group, @message], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= form.submit "送信" %>
+  </div>
 <% end %>
 
 <ul>

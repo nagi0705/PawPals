@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @message = Message.new # 新しいメッセージインスタンスを作成
+    @message = Message.new
   end
 
   def new
@@ -49,7 +49,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, :description)
+    params.require(:group).permit(:name, :description, user_ids: [])
   end
 
   def authorize_member!
