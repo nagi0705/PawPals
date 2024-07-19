@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.admin_id = current_user.id
     if @group.save
-      @group.users << current_user
+      @group.users << current_user unless @group.users.include?(current_user)
       redirect_to @group, notice: 'グループが作成されました。'
     else
       render :new
@@ -33,6 +33,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       # メンバーの更新
       @group.user_ids = params[:group][:user_ids]
+      @group.users << current_user unless @group.users.include?(current_user)
       redirect_to @group, notice: 'グループが更新されました。'
     else
       render :edit
