@@ -149,8 +149,9 @@ nav i {
 }
 
 .pet-image {
-  max-width: 100%;
-  max-height: 300px;
+  max-width: 100%; /* コンテナの幅に合わせる */
+  max-height: 300px; /* 最大高さを指定 */
+  height: auto; /* 自動的に高さを調整 */
   display: block;
   margin: 10px auto;
 }
@@ -161,10 +162,19 @@ nav i {
   cursor: default;
 }
 
+/* 追加: 画像のスタイルを統一 */
+img {
+  max-width: 100%; /* コンテナの幅に合わせる */
+  height: auto; /* 自動的に高さを調整 */
+  display: block;
+  margin: 0 auto;
+}
+
 /* レスポンシブ対応 */
 @media only screen and (max-width: 600px) {
   .container {
     width: 100%;
+    padding: 0 15px; /* 追加: コンテナにパディングを追加 */
   }
   .navbar-nav {
     flex-direction: column;
@@ -175,13 +185,6 @@ nav i {
   }
   nav li {
     margin: 5px 0; /* 追加: スマホでのナビゲーションアイテムの間隔調整 */
-  }
-  header .container {
-    width: 100%;
-    padding: 0 10px;
-  }
-  .welcome-image {
-    width: 100%;
   }
 }
 
