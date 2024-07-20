@@ -149,9 +149,8 @@ nav i {
 }
 
 .pet-image {
-  max-width: 100%; /* コンテナの幅に合わせる */
-  max-height: 300px; /* 最大高さを指定 */
-  height: auto; /* 自動的に高さを調整 */
+  max-width: 100%;
+  max-height: 300px;
   display: block;
   margin: 10px auto;
 }
@@ -160,14 +159,6 @@ nav i {
 .no-pointer {
   pointer-events: none;
   cursor: default;
-}
-
-/* 追加: 画像のスタイルを統一 */
-img {
-  max-width: 100%; /* コンテナの幅に合わせる */
-  height: auto; /* 自動的に高さを調整 */
-  display: block;
-  margin: 0 auto;
 }
 
 /* レスポンシブ対応 */
