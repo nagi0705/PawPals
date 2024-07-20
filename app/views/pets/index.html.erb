@@ -12,7 +12,6 @@
       <th>種類</th>
       <th>年齢</th>
       <th>カラー</th>
-      <th>画像</th>
       <th>登録者</th>
       <th></th>
     </tr>
@@ -24,13 +23,6 @@
         <td><%= pet.species %></td>
         <td><%= pet.age %></td>
         <td><%= pet.kind %></td>
-        <td>
-          <% if pet.image.attached? %>
-            <%= image_tag pet.image, class: 'pet-image' %>
-          <% else %>
-            <p>画像なし</p>
-          <% end %>
-        </td>
         <td><%= pet.user.username %></td>
         <td>
           <%= link_to '詳細', pet_path(pet) %>
