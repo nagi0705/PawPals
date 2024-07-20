@@ -30,13 +30,13 @@ ja:
         pet:
           attributes:
             name:
-              blank: "名前を入力してください"
+              blank: "を入力してください"
             species:
-              blank: "種類を入力してください"
+              blank: "を入力してください"
             age:
-              blank: "年齢を入力してください"
+              blank: "を入力してください"
             kind:
-              blank: "カラーを入力してください"
+              blank: "を入力してください"
 
   devise:
     sessions:
