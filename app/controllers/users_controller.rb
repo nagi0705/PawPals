@@ -39,4 +39,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :username, :password, :password_confirmation)
   end
+
+  def authorize_user!
+    unless current_user == @user || current_user.admin?
+      redirect_to users_path, alert: 'アクセス権限がありません。'
+    end
+  end
 end

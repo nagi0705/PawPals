@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post
   before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def create
     @comment = @post.comments.build(comment_params)
@@ -45,5 +46,11 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def authorize_user!
+    unless current_user == @comment.user || current_user.admin?
+      redirect_to posts_path, alert: 'アクセス権限がありません。'
+    end
   end
 end

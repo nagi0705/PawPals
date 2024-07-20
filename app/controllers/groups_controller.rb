@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_member!, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def index
     @groups = Group.all
@@ -31,7 +31,6 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      # メンバーの更新
       @group.user_ids = params[:group][:user_ids]
       @group.users << current_user unless @group.users.include?(current_user)
       redirect_to @group, notice: 'グループが更新されました。'
@@ -55,9 +54,8 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :description, user_ids: [])
   end
 
-  def authorize_member!
+  def authorize_user!
     unless current_user.admin? || @group.users.include?(current_user)
-      logger.info "User #{current_user.id} is not authorized to access Group #{@group.id}"
       redirect_to groups_path, alert: 'アクセス権限がありません。'
     end
   end
