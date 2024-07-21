@@ -56,10 +56,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: '投稿が削除されました。' }
-      format.json { head :no_content }
+    if current_user.admin? || @post.user == current_user
+      @post.destroy
+      respond_to do |format|
+        format.html { redirect_to posts_url, notice: '投稿が削除されました。' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to posts_path, alert: 'アクセス権限がありません。'
     end
   end
 
