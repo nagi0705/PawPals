@@ -19,7 +19,9 @@
 - ペットに関する情報やアドバイスを求めたい時
 
 ## 設計書
-後ほど作成予定
+- [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1xW3KK5C2em7bHV5Qx0V5JrpkFzfuk7mFEZl1j2fwKtY/edit?gid=2071776647#gid=2071776647)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1xW3KK5C2em7bHV5Qx0V5JrpkFzfuk7mFEZl1j2fwKtY/edit?gid=2071776647#gid=2071776647)
+- [ER図とUIフロー](https://app.diagrams.net/#G18yGGvPBnhSq6BFh-XdqLQQ4WJdsUVmWF#%7B%22pageId%22%3A%220ZCtPltC5Pj8FohteRng%22%7D)
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -27,5 +29,3 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-
