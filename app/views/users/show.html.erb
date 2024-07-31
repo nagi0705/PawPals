@@ -2,7 +2,11 @@
 
 <p>
   <strong>Email:</strong>
-  <%= @user.email %>
+  <% if current_user.admin? %>
+    <%= @user.email %>
+  <% else %>
+    ****
+  <% end %>
 </p>
 
 <p>
