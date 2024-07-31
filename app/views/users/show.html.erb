@@ -2,7 +2,7 @@
 
 <p>
   <strong>Email:</strong>
-  <% if current_user.admin? %>
+  <% if current_user == @user || current_user.admin? %>
     <%= @user.email %>
   <% else %>
     ****
