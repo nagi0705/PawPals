@@ -31,7 +31,7 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      @group.user_ids = params[:group][:user_ids]
+      @group.user_ids = params[:group][:user_ids].uniq
       @group.users << current_user unless @group.users.include?(current_user)
       redirect_to @group, notice: 'グループが更新されました。'
     else
