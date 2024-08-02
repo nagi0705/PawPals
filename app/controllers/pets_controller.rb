@@ -46,7 +46,11 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :species, :kind, :birth_date, :image)
+    params.require(:pet).permit(:name, :species, :kind, :image).tap do |pet_params|
+      if params[:pet][:birth_year].present? && params[:pet][:birth_month].present? && params[:pet][:birth_day].present?
+        pet_params[:birth_date] = Date.new(params[:pet][:birth_year].to_i, params[:pet][:birth_month].to_i, params[:pet][:birth_day].to_i)
+      end
+    end
   end
 
   def authorize_user!
