@@ -1,29 +1,31 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
+<h1 class="center-text"><%= @post.title %></h1>
+<p class="center-text"><%= @post.content %></p>
 
 <% if @post.image.present? %>
-  <p>
+  <p class="center-text">
     <strong>Image:</strong>
     <%= image_tag @post.image, class: "post-image" %>
   </p>
 <% end %>
 
-<p>投稿者: <%= @post.user.username %></p>
+<p class="center-text">投稿者: <%= @post.user.username %></p>
 
 <% if @post.user == current_user || current_user&.admin? %>
-  <%= link_to '編集', edit_post_path(@post) %> |
-  <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  <div class="center-text">
+    <%= link_to '編集', edit_post_path(@post), class: "btn btn-primary" %> |
+    <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+  </div>
 <% end %>
 
-<h2>コメント</h2>
+<h2 class="center-text">コメント</h2>
 
 <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= form.submit "コメントを追加" %>
+  <div class="actions center-text">
+    <%= form.submit "コメントを追加", class: "btn-primary" %>
   </div>
 <% end %>
 
@@ -33,8 +35,8 @@
     <p>投稿者: <%= comment.user.username if comment.user %></p>
     <% if comment.user == current_user || current_user&.admin? %>
       <% if comment.persisted? %>
-        <%= link_to '編集', edit_post_comment_path(@post, comment) %> |
-        <%= link_to '削除', post_comment_path(@post, comment), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <%= link_to '編集', edit_post_comment_path(@post, comment), class: "btn btn-primary" %> |
+        <%= link_to '削除', post_comment_path(@post, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
       <% end %>
     <% end %>
   </div>

@@ -1,55 +1,71 @@
 /* 全体のスタイル */
 body {
-  background-image: image-url("hoge.jpg");
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto;
+  background-color: #FFFFFF;
+  font-family: 'Comic Sans MS', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 header, footer {
-  background-color: #FFFFCC;
-  padding: 20px 0;
-  text-align: center;
-}
-
-header .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-nav {
-  margin-top: 10px;
-  background-color: transparent;
-}
-
-nav ul {
-  list-style: none;
+  background-color: #FFEBB5;
   padding: 0;
+  text-align: center;
+  color: #333;
+  font-size: 1.5em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.header-deco, .footer-deco {
+  background-color: #FDE9FF;
+  padding: 10px;
+  border-radius: 15px;
+  margin-top: -10px;
+}
+
+.navbar {
+  background-color: transparent;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* 追加 */
-}
-
-nav li {
-  margin: 0 10px; /* 修正 */
-}
-
-nav a {
-  text-decoration: none;
-  color: #007bff;
-  display: flex;
   align-items: center;
+  padding: 10px 0;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-nav i {
-  margin-right: 5px;
+.nav-item {
+  margin: 0 15px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #5C7AEA;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #F4A261;
+}
+
+footer {
+  padding: 20px 0;
+  text-align: center;
+  background-color: #FDE9FF;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .welcome-image {
@@ -83,78 +99,121 @@ nav i {
   margin: 0;
 }
 
-.navbar {
-  background-color: transparent;
-  padding: 10px;
-}
-
-.navbar-nav {
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
-  padding: 0;
-  flex-wrap: wrap; /* 追加 */
-}
-
-.nav-item {
-  margin-right: 10px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #007bff;
-}
-
-.nav-link:hover {
-  text-decoration: underline;
-  color: #0056b3;
-}
-
-.overview-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-}
-
 .form-group {
   display: flex;
-  flex-direction: column; /* 追加: 垂直方向に揃える */
+  flex-direction: column;
   margin-bottom: 1rem;
 }
 
 .form-group label {
-  width: auto; /* 修正: 幅を自動調整 */
+  width: auto;
+  margin-bottom: 5px;
 }
 
 .form-group input,
-.form-group span {
-  margin-left: 0.5rem;
-  flex-grow: 1;
+.form-group textarea,
+.form-group select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  margin-bottom: 10px; /* 間隔を追加 */
 }
 
 .form-control {
   width: 100%;
-  max-width: 300px;
-  padding: 5px;
+  max-width: 400px;
+  margin: 10px auto;
   font-size: 1rem;
+  background-color: #FDE9FF; /* 入力フィールドの背景色 */
 }
 
 .btn-primary {
-  padding: 5px 10px;
+  padding: 5px 20px; /* パディングを調整 */
   font-size: 1rem;
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: #5C7AEA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px auto; /* 中央揃え */
+  display: inline-block; /* 幅をコンテンツに合わせる */
 }
 
-.pet-image {
-  max-width: 100%;
-  max-height: 300px;
-  display: block;
-  margin: 10px auto;
-  width: auto !important; /* 追加 */
-  height: auto !important; /* 追加 */
+.btn-primary:hover {
+  background-color: #4A5DC6;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-item {
+  background-color: #FDE9FF;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-item p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.user-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-info {
+  margin-bottom: 20px;
+}
+
+.footer-info a {
+  color: #5C7AEA;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+.footer-sns {
+  margin-bottom: 20px;
+}
+
+.footer-sns a {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: #333;
+}
+
+.footer-sns a:hover {
+  color: #5C7AEA;
+}
+
+.footer-sns .fa-instagram {
+  color: #C13584;
+}
+
+.footer-sns .fa-facebook {
+  color: #3b5998;
+}
+
+.footer-sns .fa-twitter {
+  color: #1DA1F2;
+}
+
+.footer-bottom {
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 20px;
 }
 
 /* 追加: ユーザー名をクリックできないようにする */
@@ -171,32 +230,32 @@ img {
   margin: 0 auto;
 }
 
+/* birthdate-fields 内のフォームグループのスタイル */
+.birthdate-fields .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+/* ペットの画像のスタイル */
+.pet-image {
+  max-width: 100%;
+  max-height: 400px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
 /* レスポンシブ対応 */
 @media only screen and (max-width: 600px) {
-  .container {
-    width: 100%;
-    padding: 0 15px; /* 追加: コンテナにパディングを追加 */
-  }
   .navbar-nav {
     flex-direction: column;
     align-items: center;
   }
-  .form-control {
-    max-width: 100%;
-  }
-  nav li {
-    margin: 5px 0; /* 追加: スマホでのナビゲーションアイテムの間隔調整 */
-  }
-}
 
-@media only screen and (min-width: 601px) and (max-width: 768px) {
-  .container {
-    width: 90%;
-  }
-}
-
-@media only screen and (min-width: 769px) {
-  .container {
-    width: 80%;
+  .nav-item {
+    margin: 10px 0;
   }
 }

@@ -1,5 +1,26 @@
 <footer>
-  <div class="container">
-    <p>&copy; 2024 PawPals. All rights reserved.</p>
+  <div class="footer-deco" style="background-color: #FDE9FF; padding: 20px; text-align: center; box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+    <p style="margin: 10px 0;">&copy; 2024 PawPals. All rights reserved.</p>
+    <p style="margin: 10px 0;">お問い合わせはこちら: <a href="mailto:info@pawpals.com" style="color: #5C7AEA; text-decoration: none;">info@pawpals.com</a></p>
+    <div class="social-links" style="margin: 20px 0;">
+      <a href="https://www.instagram.com" target="_blank" style="margin: 0 10px; color: #C13584; font-size: 1.5rem; text-decoration: none;"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://www.facebook.com" target="_blank" style="margin: 0 10px; color: #3b5998; font-size: 1.5rem; text-decoration: none;"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://twitter.com" target="_blank" style="margin: 0 10px; color: #1DA1F2; font-size: 1.5rem; text-decoration: none;"><i class="fab fa-twitter"></i> Twitter</a>
+    </div>
+    <form action="/contact" method="POST" class="contact-form" style="max-width: 400px; margin: 0 auto;">
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="name" style="display: block; font-weight: bold; margin-bottom: 5px;">お名前:</label>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border-radius: 15px; border: 1px solid #ddd; background-color: #FFF;">
+      </div>
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="email" style="display: block; font-weight: bold; margin-bottom: 5px;">メールアドレス:</label>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border-radius: 15px; border: 1px solid #ddd; background-color: #FFF;">
+      </div>
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">メッセージ:</label>
+        <textarea id="message" name="message" required style="width: 100%; padding: 10px; border-radius: 15px; border: 1px solid #ddd; background-color: #FFF;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="padding: 10px 20px; background-color: #5C7AEA; color: white; border: none; border-radius: 15px; cursor: pointer; transition: background-color 0.3s ease;">送信</button>
+    </form>
   </div>
 </footer>

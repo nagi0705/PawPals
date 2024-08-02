@@ -1,18 +1,24 @@
-<h1>投稿一覧</h1>
+<h1 class="center-text">投稿一覧</h1>
 
-<%= form_with(url: search_posts_path, method: :get, local: true) do %>
-  <%= label_tag :query, "検索" %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "検索", name: nil %>
-<% end %>
+<div class="post-form">
+  <%= form_with(url: search_posts_path, method: :get, local: true) do %>
+    <div class="form-group">
+      <%= label_tag :query, "検索" %>
+      <%= text_field_tag :query, params[:query], class: "form-control search-input" %>
+      <%= submit_tag "検索", class: "btn-primary search-btn" %> <!-- ボタンのスタイルを統一 -->
+    </div>
+  <% end %>
+</div>
 
 <% @posts.each do |post| %>
-  <div class="post">
+  <div class="post post-form">
     <h2><%= link_to post.title, post %></h2>
     <p><%= truncate(post.content, length: 100) %></p>
     <% if current_user&.admin? || post.user == current_user %>
-      <%= link_to '編集', edit_post_path(post), class: "btn btn-warning" %>
-      <%= link_to '削除', post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+      <div class="center-text">
+        <%= link_to '編集', edit_post_path(post), class: "btn-primary" %>
+        <%= link_to '削除', post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-primary" %>
+      </div>
     <% end %>
   </div>
 <% end %>
