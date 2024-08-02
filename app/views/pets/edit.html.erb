@@ -30,13 +30,20 @@
     <% end %>
   </div>
   
-  <div class="form-group">
-    <%= form.label :age, '年齢' %>
-    <%= form.number_field :age, class: 'form-control' %>
-    <span>(推定でも構いません🙌)</span>
-    <% if @pet.errors[:age].present? %>
-      <span class="error"><%= @pet.errors[:age].first %></span>
-    <% end %>
+ <div class="form-group">
+    <%= form.label :birth_date, '生年月日' %>
+    <div class="birthdate-fields">
+      <div class="form-group">
+        <%= form.select :birth_year, options_for_select((1900..Date.today.year).to_a.reverse), { prompt: '年' }, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.select :birth_month, options_for_select((1..12).to_a), { prompt: '月' }, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.select :birth_day, options_for_select((1..31).to_a), { prompt: '日' }, class: 'form-control' %>
+      </div>
+    </div>
+    <span>(年、月、日を選択してください)</span>
   </div>
   
   <div class="form-group">
