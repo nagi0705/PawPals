@@ -32,7 +32,7 @@
       <p><%= message.content %></p>
       <p>投稿者: <%= message.user.username if message.user %></p>
       <% if message.user == current_user || current_user.admin? %>
-        <%= link_to '削除', group_message_path(@group, message), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+        <%= link_to '削除', group_message_path(@group, message), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-primary' %>
       <% end %>
     </li>
   <% end %>
