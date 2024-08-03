@@ -31,6 +31,6 @@
 
 <% if current_user == @pet.user || current_user.admin? %>
   <%= link_to '編集', edit_pet_path(@pet), class: 'btn btn-primary' %> |
-  <%= link_to '削除', @pet, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %> |
+  <%= link_to '削除', @pet, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-primary' %> |
 <% end %>
 <%= link_to '戻る', pets_path, class: 'btn btn-primary' %>

@@ -302,6 +302,12 @@ img {
   max-width: 600px; /* フォームの最大幅を設定 */
 }
 
+h1 {
+  color: #FF69B4;
+  text-shadow: 2px 2px #F0E68C;
+  font-size: 3em;
+}
+
 /* レスポンシブ対応 */
 @media only screen and (max-width: 600px) {
   .navbar-nav {
