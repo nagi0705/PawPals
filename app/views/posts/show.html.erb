@@ -13,7 +13,7 @@
 <% if @post.user == current_user || current_user&.admin? %>
   <div class="center-text">
     <%= link_to '編集', edit_post_path(@post), class: "btn btn-primary" %> |
-    <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+    <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-primary" %>
   </div>
 <% end %>
 
@@ -36,7 +36,7 @@
     <% if comment.user == current_user || current_user&.admin? %>
       <% if comment.persisted? %>
         <%= link_to '編集', edit_post_comment_path(@post, comment), class: "btn btn-primary" %> |
-        <%= link_to '削除', post_comment_path(@post, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+        <%= link_to '削除', post_comment_path(@post, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-primary" %>
       <% end %>
     <% end %>
   </div>

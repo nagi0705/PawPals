@@ -19,10 +19,10 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "ログイン", class: 'btn btn-primary' %>
   </div>
 <% end %>
 
-<%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+<%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'btn btn-primary' %>
 
 <%= render "devise/shared/links" %>

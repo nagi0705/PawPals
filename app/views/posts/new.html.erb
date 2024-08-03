@@ -1,6 +1,6 @@
-<h1>新しい投稿</h1>
+<h1 class="center-text">新しい投稿</h1>
 
-<%= form_with model: @post, local: true, html: { multipart: true, class: "new-post-form" } do |form| %>
+<%= form_with model: @post, local: true, html: { multipart: true, class: "new-post-form center-form" } do |form| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "つのエラーにより、この投稿の保存が禁止されました：") %></h2>
@@ -33,5 +33,5 @@
 <% end %>
 
 <div class="center-button">
-  <%= link_to '戻る', posts_path, class: "btn btn-secondary" %>
+  <%= link_to '戻る', posts_path, class: "btn btn-primary" %>
 </div>

@@ -29,7 +29,7 @@
     <% end %>
   </div>
   <div class="actions">
-    <%= form.submit action_name == 'new' ? "グループを作成" : "グループを更新" %>
+    <%= form.submit action_name == 'new' ? "グループを作成" : "グループを更新", class: 'btn btn-primary' %>
   </div>
 <% end %>
-<%= link_to '戻る', groups_path %>
+<%= link_to '戻る', groups_path, class: 'btn btn-primary' %>

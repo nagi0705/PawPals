@@ -128,6 +128,36 @@ footer {
   background-color: #FDE9FF; /* 入力フィールドの背景色 */
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea {
+  background-color: #FDE9FF; /* ピンク色の背景 */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+  font-size: 1rem;
+  box-sizing: border-box; /* パディングと境界線のサイズを含む */
+}
+
+footer input[type="text"],
+footer input[type="email"],
+footer textarea {
+  background-color: #FFFFFF; /* 白色の背景 */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+  font-size: 1rem;
+  box-sizing: border-box; /* パディングと境界線のサイズを含む */
+}
+
 .btn-primary {
   padding: 5px 20px; /* パディングを調整 */
   font-size: 1rem;
@@ -138,6 +168,8 @@ footer {
   cursor: pointer;
   margin: 10px auto; /* 中央揃え */
   display: inline-block; /* 幅をコンテンツに合わせる */
+  text-decoration: none; /* リンクの下線を消す */
+  text-align: center; /* テキストを中央揃え */
 }
 
 .btn-primary:hover {
@@ -246,6 +278,28 @@ img {
   display: block;
   margin: 0 auto;
   object-fit: cover;
+}
+
+/* 中央揃え用のスタイル */
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 960px; /* コンテンツの最大幅 */
+  text-align: center;
+}
+
+.about-page, .about-title, .about-text, .feature-title {
+  text-align: center;
+}
+
+.center-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 600px; /* フォームの最大幅を設定 */
 }
 
 /* レスポンシブ対応 */

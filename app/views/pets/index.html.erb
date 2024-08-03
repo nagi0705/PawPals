@@ -1,7 +1,7 @@
 <h1>ペット管理</h1>
-<p>ここでペットの管理ができます。</p>
+<p>ここでペットの登録・管理ができます。<br>他のユーザーのペットものぞいてみよう！</p>
 
-<%= link_to '新しいペットを登録', new_pet_path %>
+<%= link_to '新しいペットを登録', new_pet_path, class: 'btn-primary' %>
 
 <table>
   <thead>
@@ -23,10 +23,10 @@
         <td><%= pet.kind %></td>
         <td><%= pet.user.username %></td>
         <td>
-          <%= link_to '詳細', pet_path(pet) %>
+          <%= link_to '詳細', pet_path(pet), class: 'btn-primary' %>
           <% if pet.user == current_user %>
-            <%= link_to '編集', edit_pet_path(pet) %>
-            <%= link_to '削除', pet, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+            <%= link_to '編集', edit_pet_path(pet), class: 'btn-primary' %>
+            <%= link_to '削除', pet, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-primary' %>
           <% end %>
         </td>
       </tr>

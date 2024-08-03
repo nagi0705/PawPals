@@ -1,9 +1,9 @@
 <h1>ユーザー一覧</h1>
 
 <%= form_with url: search_users_path, method: :get, local: true do %>
-  <%= label_tag :q, '検索' %>
+  <%= label_tag :q, '検索ワード' %>
   <%= text_field_tag :q %>
-  <%= submit_tag '検索' %>
+  <%= submit_tag '検索', class: 'btn btn-primary' %>
 <% end %>
 
 <ul>
@@ -11,8 +11,8 @@
     <li>
       <%= link_to user.username, user_path(user) %>
       <% if user == current_user || current_user.admin? %>
-        <%= link_to '編集', edit_user_path(user) %> |
-        <%= link_to '削除', user, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <%= link_to '編集', edit_user_path(user), class: 'btn btn-primary' %> |
+        <%= link_to '削除', user, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-primary' %>
       <% end %>
     </li>
   <% end %>
