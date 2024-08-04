@@ -1,0 +1,25 @@
+<h1>健康記録詳細</h1>
+
+<p>
+  <strong>散歩したか:</strong>
+  <%= @health_record.walked ? "はい" : "いいえ" %>
+</p>
+
+<p>
+  <strong>朝ごはんを食べたか:</strong>
+  <%= @health_record.morning_meal ? "はい" : "いいえ" %>
+</p>
+
+<p>
+  <strong>夕ごはんを食べたか:</strong>
+  <%= @health_record.evening_meal ? "はい" : "いいえ" %>
+</p>
+
+<p>
+  <strong>メモ:</strong>
+  <%= @health_record.note %>
+</p>
+
+<%= link_to '編集', edit_pet_health_record_path(@pet, @health_record), class: "btn btn-primary" %>
+<%= link_to '削除', pet_health_record_path(@pet, @health_record), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-primary" %>
+<%= link_to '戻る', pet_health_records_path(@pet), class: "btn btn-primary" %>

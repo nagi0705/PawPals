@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pet: one
+  walked: false
+  morning_meal: false
+  evening_meal: false
+  note: MyText
+
+two:
+  pet: two
+  walked: false
+  morning_meal: false
+  evening_meal: false
+  note: MyText

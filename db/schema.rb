@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_02_084736) do
+ActiveRecord::Schema.define(version: 2024_08_04_042306) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -65,6 +65,37 @@ ActiveRecord::Schema.define(version: 2024_08_02_084736) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "admin_id"
+  end
+
+  create_table "growth_records", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "pet_id", null: false
+    t.float "weight"
+    t.float "height"
+    t.text "note"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_growth_records_on_pet_id"
+  end
+
+  create_table "health_records", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "pet_id", null: false
+    t.boolean "walked", default: false, null: false
+    t.boolean "morning_meal", default: false, null: false
+    t.boolean "evening_meal", default: false, null: false
+    t.text "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_health_records_on_pet_id"
+  end
+
+  create_table "likes", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "messages", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -124,6 +155,10 @@ ActiveRecord::Schema.define(version: 2024_08_02_084736) do
   add_foreign_key "comments", "users"
   add_foreign_key "group_memberships", "groups"
   add_foreign_key "group_memberships", "users"
+  add_foreign_key "growth_records", "pets"
+  add_foreign_key "health_records", "pets"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
   add_foreign_key "pets", "users"

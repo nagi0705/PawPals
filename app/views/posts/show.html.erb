@@ -10,12 +10,26 @@
 
 <p class="center-text">投稿者: <%= @post.user.username %></p>
 
+<p class="center-text"><%= pluralize(@post.likes.count, "いいね") %></p>
+<% if current_user.likes.where(post: @post).exists? %>
+  <%= link_to 'いいねをやめる', post_like_path(@post, current_user.likes.find_by(post: @post)), method: :delete, class: "btn btn-primary" %>
+<% else %>
+  <%= link_to 'いいねする', post_likes_path(@post), method: :post, class: "btn btn-primary" %>
+<% end %>
+
 <% if @post.user == current_user || current_user&.admin? %>
   <div class="center-text">
     <%= link_to '編集', edit_post_path(@post), class: "btn btn-primary" %> |
     <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<h2 class="center-text">いいねしたユーザー</h2>
+<ul>
+  <% @likes.each do |like| %>
+    <li><%= like.user.username %></li>
+  <% end %>
+</ul>
 
 <h2 class="center-text">コメント</h2>
 

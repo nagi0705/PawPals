@@ -24,9 +24,10 @@
         <td><%= pet.user.username %></td>
         <td>
           <%= link_to '詳細', pet_path(pet), class: 'btn-primary' %>
-          <% if pet.user == current_user %>
+          <% if pet.user == current_user || current_user.admin? %>
             <%= link_to '編集', edit_pet_path(pet), class: 'btn-primary' %>
-            <%= link_to '削除', pet, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-primary' %>
+            <%= link_to '削除', pet_path(pet), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-primary' %>
+            <%= link_to '健康記録', pet_health_records_path(pet), class: 'btn-primary' %> <!-- 健康記録へのリンクを追加 -->
           <% end %>
         </td>
       </tr>

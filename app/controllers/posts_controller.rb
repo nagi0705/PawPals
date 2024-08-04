@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments.includes(:user)
+    @likes = @post.likes.includes(:user)  # 追加: いいねしたユーザーの情報を取得
   end
 
   def new

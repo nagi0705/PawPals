@@ -1,0 +1,29 @@
+<h1>新しい健康記録を追加</h1>
+
+<%= form_with model: [@pet, @health_record], local: true do |f| %>
+  <div>
+    <%= f.label :walked, "散歩したか" %><br>
+    <%= f.check_box :walked %>
+  </div>
+  
+  <div>
+    <%= f.label :morning_meal, "朝ごはんを食べたか" %><br>
+    <%= f.check_box :morning_meal %>
+  </div>
+  
+  <div>
+    <%= f.label :evening_meal, "夕ごはんを食べたか" %><br>
+    <%= f.check_box :evening_meal %>
+  </div>
+  
+  <div>
+    <%= f.label :note, "メモ" %><br>
+    <%= f.text_area :note %>
+  </div>
+
+  <div>
+    <%= f.submit "保存", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', pet_health_records_path(@pet), class: "btn btn-primary" %>

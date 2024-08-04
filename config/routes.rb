@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: [:create, :edit, :update, :destroy]
+    resources :likes, only: [:create, :destroy]
     collection do
       get 'search'
     end
@@ -26,7 +27,9 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :destroy]
   end
 
-  resources :pets
+  resources :pets do
+    resources :health_records, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  end
 
   namespace :admin do
     resources :users, only: [:index, :edit, :update, :destroy]

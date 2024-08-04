@@ -1,0 +1,33 @@
+<h1>健康記録一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>日付</th>
+      <th>散歩</th>
+      <th>朝ごはん</th>
+      <th>夕ごはん</th>
+      <th>メモ</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @health_records.each do |record| %>
+      <tr>
+        <td><%= record.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= record.walked ? "はい" : "いいえ" %></td>
+        <td><%= record.morning_meal ? "はい" : "いいえ" %></td>
+        <td><%= record.evening_meal ? "はい" : "いいえ" %></td>
+        <td><%= record.note %></td>
+        <td>
+          <%= link_to '詳細', pet_health_record_path(@pet, record), class: 'btn btn-primary' %>
+          <%= link_to '編集', edit_pet_health_record_path(@pet, record), class: 'btn btn-primary' %>
+          <%= link_to '削除', pet_health_record_path(@pet, record), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新しい健康記録を追加', new_pet_health_record_path(@pet), class: 'btn btn-primary' %>
+<%= link_to 'ペット一覧に戻る', pets_path, class: 'btn btn-primary' %>

@@ -1,7 +1,8 @@
 class Pet < ApplicationRecord
   belongs_to :user
-
   has_one_attached :image
+  has_many :growth_records, dependent: :destroy # GrowthRecordモデルとの関連付け
+  has_many :health_records, dependent: :destroy # HealthRecordモデルとの関連付けを追加
 
   validates :name, presence: { message: '名前を入力してください' }
   validates :species, presence: { message: '種類を入力してください' }
