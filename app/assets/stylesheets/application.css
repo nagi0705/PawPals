@@ -299,54 +299,8 @@ img {
   max-width: 600px; /* フォームの最大幅を設定 */
 }
 
-h1 {
-  color: #FF69B4;
-  text-shadow: 2px 2px #F0E68C;
-  font-size: 3em;
-}
 
-/* ペット管理ページのスタイル */
-.pet-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
 
-.pet-item {
-  background-color: #FFF0F5;
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  text-align: center;
-}
-
-.pet-name {
-  font-size: 1.5em;
-  margin: 0;
-}
-
-.pet-owner p {
-  color: #5C7AEA;
-  font-weight: bold;
-}
-
-.pet-actions {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* 投稿一覧ページのスタイル */
-
-.post-item {
-  border-radius: 15px;
-  padding: 10px 20px;
-  width: 100%;
-  max-width: 600px;
-}
 
 /* レスポンシブ対応 */
 @media only screen and (max-width: 600px) {
@@ -359,15 +313,5 @@ h1 {
     margin: 10px 0;
   }
 
-  .pet-item {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .post-item {
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  .
+ 
 }
