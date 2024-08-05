@@ -25,10 +25,16 @@ Rails.application.routes.draw do
 
   resources :groups do
     resources :messages, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
 
   resources :pets do
     resources :health_records, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    collection do
+      get 'search'
+    end
   end
 
   namespace :admin do

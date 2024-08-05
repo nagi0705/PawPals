@@ -1,0 +1,2 @@
+module PetDetailsHelper
+end

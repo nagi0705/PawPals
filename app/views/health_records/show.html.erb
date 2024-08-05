@@ -1,6 +1,11 @@
 <h1>健康記録詳細</h1>
 
 <p>
+  <strong>日付:</strong>
+  <%= @health_record.created_at.strftime("%Y-%m-%d") %>
+</p>
+
+<p>
   <strong>散歩したか:</strong>
   <%= @health_record.walked ? "はい" : "いいえ" %>
 </p>
@@ -13,6 +18,11 @@
 <p>
   <strong>夕ごはんを食べたか:</strong>
   <%= @health_record.evening_meal ? "はい" : "いいえ" %>
+</p>
+
+<p>
+  <strong>体重:</strong>
+  <%= @health_record.weight %> kg <!-- 体重の表示を追加 -->
 </p>
 
 <p>

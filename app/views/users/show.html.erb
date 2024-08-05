@@ -14,6 +14,11 @@
   <%= @user.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
 </p>
 
+<% if current_user == @user || current_user.admin? %>
+  <%= link_to '編集', edit_user_path(@user), class: 'btn btn-primary' %> |
+  <%= link_to '削除', @user, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-primary' %>
+<% end %>
+
 <h2>投稿一覧</h2>
 <% if @user.posts.any? %>
   <ul>
@@ -23,6 +28,28 @@
   </ul>
 <% else %>
   <p>投稿はありません。</p>
+<% end %>
+
+<h2>グループ一覧</h2>
+<% if @user.groups.any? %>
+  <ul>
+    <% @user.groups.each do |group| %>
+      <li><%= link_to group.name, group_path(group) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>グループに参加していません。</p>
+<% end %>
+
+<h2>登録しているペット</h2>
+<% if @user.pets.any? %>
+  <ul>
+    <% @user.pets.each do |pet| %>
+      <li><%= link_to pet.name, pet_path(pet) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>ペットを登録していません。</p>
 <% end %>
 
 <%= link_to '戻る', users_path, class: 'btn btn-primary' %>

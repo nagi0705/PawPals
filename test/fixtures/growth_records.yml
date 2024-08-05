@@ -3,13 +3,9 @@
 one:
   pet: one
   weight: 1.5
-  height: 1.5
-  note: MyText
-  date: 2024-08-04
+  notes: MyText
 
 two:
   pet: two
   weight: 1.5
-  height: 1.5
-  note: MyText
-  date: 2024-08-04
+  notes: MyText

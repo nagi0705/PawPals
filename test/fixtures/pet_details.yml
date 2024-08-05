@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pet: one
+  weight: 1.5
+  hospital: MyString
+  fur_color: MyString
+  favorite_food: MyString
+  dislikes: MyString
+
+two:
+  pet: two
+  weight: 1.5
+  hospital: MyString
+  fur_color: MyString
+  favorite_food: MyString
+  dislikes: MyString

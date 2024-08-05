@@ -1,5 +1,5 @@
-<h1><%= @group.name %></h1>
-<p><%= @group.description %></p>
+<h1 class="group-title"><%= @group.name %></h1>
+<p class="group-description"><%= @group.description %></p>
 
 <p>
   <%= link_to '編集', edit_group_path(@group), class: 'btn btn-primary' %>
@@ -7,18 +7,18 @@
   <%= link_to 'グループ一覧に戻る', groups_path, class: 'btn btn-primary' %>
 </p>
 
-<h3>メンバー</h3>
+<h2 class="group-subtitle">メンバー</h2>
 <ul>
   <% @group.users.each do |user| %>
     <li><%= user.username %></li>
   <% end %>
 </ul>
 
-<h2>ミニチャット</h2>
+<h2 class="group-subtitle">ミニチャット</h2>
 
 <%= form_with(model: [@group, @message], local: true) do |form| %>
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label :"メッセージ" %>
     <%= form.text_area :content, class: 'form-control' %>
   </div>
   <div class="actions">

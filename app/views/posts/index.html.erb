@@ -10,15 +10,21 @@
   <% end %>
 </div>
 
-<% @posts.each do |post| %>
-  <div class="post post-form">
-    <h2><%= link_to post.title, post %></h2>
-    <p><%= truncate(post.content, length: 100) %></p>
-    <% if current_user&.admin? || post.user == current_user %>
-      <div class="center-text">
-        <%= link_to '編集', edit_post_path(post), class: "btn-primary" %>
-        <%= link_to '削除', post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-primary" %>
+<div class="post-list">
+  <% @posts.each do |post| %>
+    <div class="post-item">
+      <div class="post-title">
+        <h2><%= link_to post.title, post, class: 'post-link' %></h2>
       </div>
-    <% end %>
-  </div>
-<% end %>
+      <div class="post-content">
+        <p><%= truncate(post.content, length: 100) %></p>
+      </div>
+      <% if current_user&.admin? || post.user == current_user %>
+        <div class="post-actions">
+          <%= link_to '編集', edit_post_path(post), class: "btn-primary" %>
+          <%= link_to '削除', post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

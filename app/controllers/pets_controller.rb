@@ -39,6 +39,11 @@ class PetsController < ApplicationController
     redirect_to pets_url, notice: 'ペットが削除されました。'
   end
 
+  def search
+    @pets = Pet.where('name LIKE ?', "%#{params[:query]}%")
+    render :index
+  end
+
   private
 
   def set_pet

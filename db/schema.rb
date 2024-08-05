@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_04_042306) do
+ActiveRecord::Schema.define(version: 2024_08_05_020905) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -70,9 +70,7 @@ ActiveRecord::Schema.define(version: 2024_08_04_042306) do
   create_table "growth_records", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "pet_id", null: false
     t.float "weight"
-    t.float "height"
-    t.text "note"
-    t.date "date"
+    t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pet_id"], name: "index_growth_records_on_pet_id"
@@ -86,6 +84,7 @@ ActiveRecord::Schema.define(version: 2024_08_04_042306) do
     t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "weight"
     t.index ["pet_id"], name: "index_health_records_on_pet_id"
   end
 

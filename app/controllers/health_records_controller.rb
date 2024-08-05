@@ -53,7 +53,7 @@ class HealthRecordsController < ApplicationController
   end
 
   def health_record_params
-    params.require(:health_record).permit(:walked, :morning_meal, :evening_meal, :note)
+    params.require(:health_record).permit(:walked, :morning_meal, :evening_meal, :weight, :note)
   end
 
   def correct_user_or_admin

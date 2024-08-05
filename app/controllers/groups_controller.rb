@@ -44,6 +44,11 @@ class GroupsController < ApplicationController
     redirect_to groups_url, notice: 'グループが削除されました。'
   end
 
+  def search
+    @groups = Group.where('name LIKE ?', "%#{params[:query]}%")
+    render :index
+  end
+
   private
 
   def set_group

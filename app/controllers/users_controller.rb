@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @groups = @user.groups
+    @pets = @user.pets
   end
 
   def edit
@@ -34,6 +36,8 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    @groups = @user.groups
+    @pets = @user.pets
   end
 
   def user_params
