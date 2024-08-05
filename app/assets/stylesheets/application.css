@@ -299,8 +299,18 @@ img {
   max-width: 600px; /* フォームの最大幅を設定 */
 }
 
+h1 {
+  color: #FF69B4;
+  text-shadow: 2px 2px #F0E68C;
+  font-size: 3em;
+}
 
-
+.post-item {
+  border-radius: 15px;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 600px;
+}
 
 /* レスポンシブ対応 */
 @media only screen and (max-width: 600px) {
@@ -313,5 +323,14 @@ img {
     margin: 10px 0;
   }
 
- 
+  .pet-item {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .post-item {
+    width: 100%;
+    max-width: 300px;
+  }
+  
 }
